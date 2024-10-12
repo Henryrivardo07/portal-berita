@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', [DashboardController::class, 'home'])->name('home');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -14,6 +15,8 @@ Route::get('/master', function () {
 Route::get('/table', function () {
     return view('table');
 });
+
+Route::resource('category', CategoryController::class);
 
 Route::get('/data-tables', function () {
     return view('data-tables');
